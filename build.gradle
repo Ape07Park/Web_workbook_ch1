@@ -32,6 +32,10 @@ dependencies {
 // https://mvnrepository.com/artifact/org.eclipse.jetty/glassfish-jstl
     implementation group: 'org.eclipse.jetty', name: 'glassfish-jstl', version: '11.0.11'
 
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.4.0'
+
+
 
 }
 

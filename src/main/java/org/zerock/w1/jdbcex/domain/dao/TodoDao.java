@@ -31,7 +31,7 @@ public class TodoDao {
     }
 
 //    @Cleanup : 해당 메소드가 종료되면 close()가 자동으로 호출됨.
-    public String getTime2() throws Exception {
+    public String getTime2() throws Exception { // throws Exception 추가
 
         String now = null;
 
@@ -50,8 +50,7 @@ public class TodoDao {
 
         return now;
     }
-    
-    // TODO 작업 중
+
     public void insert(TodoVo vo) throws Exception {
 
         String sql = "insert into tbl_todo (title, dueDate, finished) values (?, ?, ?)";
@@ -61,7 +60,7 @@ public class TodoDao {
         // 실행할 sql문 설정
         @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        // ?에 들어갈 값 세팅
+        // ?에 들어갈 sql문의 파라미터 세팅
         preparedStatement.setString(1, vo.getTitle());
         preparedStatement.setDate(2, Date.valueOf(vo.getDueDate())); // sql에는 LocalDate라는 타입을 지원 x 따라서 sql 타입에 맞게 dueDate를 변환
         preparedStatement.setBoolean(3, vo.isFinished());

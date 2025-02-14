@@ -1,0 +1,35 @@
+<Configuration>
+    <Appenders>
+        <!-- 콘솔 출력 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- 파일 저장 -->
+<!--        <File name="FileLogger" fileName="logs/app.log">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>-->
+<!--        </File>-->
+
+        <!-- 파일 롤링 (최대 10MB, 5개 파일 유지) -->
+<!--        <RollingFile name="RollingFileLogger" fileName="logs/app.log"-->
+<!--                     filePattern="logs/app-%d{yyyy-MM-dd-HH-mm}.log.gz">-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                <SizeBasedTriggeringPolicy size="10MB"/>-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy max="5"/>-->
+<!--        </RollingFile>-->
+    </Appenders>
+
+    <Loggers>
+<!--        로깅 레벨 info로 설정-->
+        <Root level="info">
+<!--            위에서 설정한 Console 어펜더만 활용할 것임-->
+            <AppenderRef ref="Console"/>
+<!--            <AppenderRef ref="FileLogger"/>-->
+<!--            <AppenderRef ref="RollingFileLogger"/>-->
+        </Root>
+    </Loggers>
+</Configuration>

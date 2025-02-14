@@ -5,6 +5,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Builder
 public class TodoVo {

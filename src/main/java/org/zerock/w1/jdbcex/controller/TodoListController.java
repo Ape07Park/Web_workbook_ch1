@@ -6,10 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
+import org.zerock.w1.jdbcex.dto.TodoDto;
 import org.zerock.w1.jdbcex.service.TodoService;
 
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "todoListController", value = "/todo/list")
 @Log4j2
@@ -20,6 +22,15 @@ public class TodoListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        log.info("todo list...........");
+        try {
+            List<TodoDto> dtoList = todoService.listAll();
+            request.setAttribute("todoList", dtoList);
+            request.getRequestDispatcher("/WEB-INF/todo/list.jsp").forward(request, response);
+
+        }  catch (Exception e) {
+            log.error("TodoListController doGet error : ", e);
+            throw new ServletException("list error");
+        }
     }
+
 }

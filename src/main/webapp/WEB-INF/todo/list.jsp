@@ -11,7 +11,7 @@
 <head>
     <title>Title</title>
     <h1>List Page</h1>
-    <c:forEach var="dto" items="${list}">
+    <c:forEach var="dto" items="${todoList}">
         <li>${dto}</li>
     </c:forEach>
 

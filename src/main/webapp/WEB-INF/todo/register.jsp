@@ -13,8 +13,16 @@
 </head>
 <body>
 <form method="POST" action="/todo/register">
+    <div>
+        <input type="text" name="title" placeholder="제목 입력"/>
+    </div>
+    <div>
+        <input type="date" name="dueDate" placeholder="날짜"/>
+    </div>
 
-    <button type="submit">등록 처리</button>
+    <button type="reset">리셋</button>
+    <button type="submit">등록</button>
+
 </form>
 </body>
 </html>

@@ -80,4 +80,30 @@ public enum TodoService {
         return todoDto;
 
     }
+
+    /**
+     * 삭제
+     * @param tno
+     * @throws Exception
+     */
+    public void remove(Long tno) throws Exception {
+
+        log.info("tno :" + tno);
+        dao.delete(tno);
+    }
+
+    /**
+     * 삭제
+     * @param dto
+     * @throws Exception
+     */
+    public void update(TodoDto dto) throws Exception {
+
+        log.info("update - dto :" + dto);
+
+        TodoVo vo = modelMapper.map(dto, TodoVo.class);
+
+        dao.update(vo);
+
+    }
 }

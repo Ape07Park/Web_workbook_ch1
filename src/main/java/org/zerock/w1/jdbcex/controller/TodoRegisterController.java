@@ -2,6 +2,7 @@ package org.zerock.w1.jdbcex.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
@@ -14,19 +15,19 @@ import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "todoRegisterController", value = "/todo/register")
 @Log4j2
-public class TodoRegisterController {
+public class TodoRegisterController extends HttpServlet {
 
     private TodoService todoService = TodoService.INSTANCE;
     // db에 저장되어 있는 타임포맷을 특정 형태로 바꾸기 위해 선언
     private final DateTimeFormatter DATEFORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info(".........../todo/register GET");
 
         request.getRequestDispatcher("/WEB-INF/todo/register.jsp").forward(request, response);
     }
 
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         log.info(".........../todo/register POST");

@@ -19,12 +19,20 @@ public enum TodoService {
     private TodoDao dao;
     private ModelMapper modelMapper;
 
+    /**
+     * 생성자
+     */
     TodoService() {
         dao = new TodoDao();
         modelMapper = MapperUtil.INSTANCE.getModelMapper();
 
     }
 
+    /**
+     * 등록
+     * @param todoDto
+     * @throws Exception
+     */
     public void register (TodoDto todoDto) throws Exception {
 
         TodoVo todoVo = modelMapper.map(todoDto, TodoVo.class); // dto -> vo
@@ -36,6 +44,11 @@ public enum TodoService {
         dao.insert(todoVo); // int를 반환하므로 이를 이용해 예외처리 가능
     }
 
+    /**
+     * 목록
+     * @return
+     * @throws Exception
+     */
     public List<TodoDto> listAll() throws Exception {
 
         List<TodoVo> todoVoList = dao.selectAll();
@@ -47,7 +60,24 @@ public enum TodoService {
                .collect(Collectors.toList());
 
         return todoDtoList;
+    }
 
+    /**
+     * 조회
+     * @param id
+     * @return
+     * @throws Exception
+     * */
+    public TodoDto get(Long id) throws Exception {
+
+        TodoVo todoVo = dao.selectOne(id);
+
+        if (todoVo == null) {
+            return null;
+        }
+        TodoDto todoDto = modelMapper.map(todoVo, TodoDto.class);
+
+        return todoDto;
 
     }
 }

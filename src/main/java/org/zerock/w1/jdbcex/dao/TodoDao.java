@@ -53,7 +53,11 @@ public class TodoDao {
         return now;
     }
 
-    // 삽입 
+    /**
+     * 삽입
+     * @param vo 저장할 객체
+     * @throws Exception
+     */
     public void insert(TodoVo vo) throws Exception {
 
         String sql = "insert into tbl_todo (title, dueDate, finished) values (?, ?, ?)";
@@ -100,7 +104,13 @@ public class TodoDao {
         }
             return todoList;
     }
-    
+
+    /**
+     * 한 개 조회하기
+     * @param tno 조회할 것의 시퀀스
+     * @return
+     * @throws Exception
+     */
     public TodoVo selectOne(Long tno) throws Exception {
 
         TodoVo vo;
@@ -129,7 +139,11 @@ public class TodoDao {
             return vo;
     }
 
-    // update
+    /**
+     * 업데이트
+     * @param vo 업데이트할 객체
+     * @throws Exception
+     */
     public void update(TodoVo vo) throws Exception {
 
         String sql = "update tbl_todo set title =?, dueDate =?, finished =? where tno =?";
@@ -149,7 +163,11 @@ public class TodoDao {
         preparedStatement.executeUpdate();
     }
 
-    //delete
+    /**
+     * 삭제
+     * @param tno 삭제할 것의 시퀀스
+     * @throws Exception
+     */
     public void delete(Long tno) throws Exception {
 
         String sql = "delete from tbl_todo where tno =?";

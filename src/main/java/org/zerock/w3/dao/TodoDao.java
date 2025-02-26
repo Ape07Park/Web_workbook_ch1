@@ -1,7 +1,7 @@
-package org.zerock.w1.jdbcex.dao;
+package org.zerock.w3.dao;
 
 import lombok.Cleanup;
-import org.zerock.w1.jdbcex.domain.TodoVo;
+import org.zerock.w3.domain.TodoVo;
 
 import java.sql.*;
 import java.util.ArrayList;

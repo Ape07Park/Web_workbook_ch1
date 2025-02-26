@@ -2,8 +2,8 @@ package dao;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.zerock.w1.jdbcex.domain.TodoVo;
-import org.zerock.w1.jdbcex.dao.TodoDao;
+import org.zerock.w3.domain.TodoVo;
+import org.zerock.w3.dao.TodoDao;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

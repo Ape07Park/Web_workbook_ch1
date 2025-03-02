@@ -1,5 +1,6 @@
 package org.zerock.w3.controller;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,6 +22,10 @@ public class TodoListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ServletContext servletContext = request.getServletContext();
+
+        log.info("appName: " + servletContext.getAttribute("appName"));
 
         try {
             List<TodoDto> dtoList = todoService.listAll();

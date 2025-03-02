@@ -14,7 +14,7 @@
 <%--EL은 HTTPServletRequest에서 저장된 객체를 못찾으면 HttpSession에서 저장된 객체를 찾음(스코프 범위 확장). 따라서 ${loginInfo}를 하면 세션에서 값을 찾아 출력함
  스코프: 변수나 객체가 접근 가능한 범위
  --%>
-
+    <h2>${appName}</h2>
     <h2>${loginInfo}</h2>
     <h2>${loginInfo.mname}</h2>
 

@@ -43,5 +43,40 @@ public class MemberDao {
             return vo;
     }
 
+    public void updateUuid(String mid, String uuid) throws Exception {
+
+        String sql = "update tbl_member set uuid=? where mid = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, uuid);
+        preparedStatement.setString(2, mid);
+
+        preparedStatement.executeUpdate();
+    }
+
+    public MemberVo findUuidByUuid(String uuid) throws Exception {
+
+        String sql = "select * from tbl_member where mid = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, uuid);
+
+        @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+
+        resultSet.next();
+
+        MemberVo memberVo = MemberVo.builder()
+                .mid(resultSet.getString("mid"))
+                .mpw(resultSet.getString("mpw"))
+                .mname(resultSet.getString("mname"))
+                .uuid(resultSet.getString("uuid"))
+                .build();
+
+        return memberVo;
+    }
 
 }

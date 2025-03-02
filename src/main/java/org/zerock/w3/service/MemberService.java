@@ -49,4 +49,31 @@ public enum MemberService {
         return memberDto;
     }
 
+    /**
+     * 회원의 uuid 업데이트
+     * @param mid 회원의 시퀀스
+     * @param uuid uuid
+     * @throws Exception
+     */
+    public void updateUuid(String mid, String uuid) throws Exception {
+
+        dao.updateUuid(mid, uuid);
+    }
+
+    /**
+     * uuid로 회원 정보 가져오기
+     * @param uuid
+     * @return
+     * @throws Exception
+     */
+    public MemberDto getByUuid(String uuid) throws Exception {
+
+        // uuid로 회원 정보 가져오기
+        MemberVo vo = dao.findUuidByUuid(uuid);
+
+        MemberDto memberDto = modelMapper.map(vo, MemberDto.class);
+
+        return memberDto;
+    }
+
 }

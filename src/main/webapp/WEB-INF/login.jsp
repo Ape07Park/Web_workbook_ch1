@@ -25,6 +25,9 @@
     <div>
         <input type="text" name="pwd" placeholder="비밀번호 입력"/>
     </div>
+    <div>
+        <input type="checkbox" name="remember-me"/>
+    </div>
 
     <button type="submit">LOGIN</button>
 

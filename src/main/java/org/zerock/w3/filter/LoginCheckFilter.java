@@ -41,6 +41,7 @@ public class LoginCheckFilter implements Filter {
 
             // 다음 필터호출 or 요청이 목적지로 갈 수 있도록 함
             filterChain.doFilter(servletRequest, servletResponse);
+            return;
         }
 
         /**

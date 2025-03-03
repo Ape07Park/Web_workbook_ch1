@@ -1,6 +1,7 @@
 package org.zerock.w3.dao;
 
 import lombok.Cleanup;
+import lombok.extern.slf4j.Slf4j;
 import org.zerock.w3.domain.MemberVo;
 import org.zerock.w3.domain.TodoVo;
 
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class MemberDao {
 
     public MemberVo findByMemberByMidAndMpw(String mid, String mpw) throws Exception {
@@ -58,7 +60,7 @@ public class MemberDao {
 
     public MemberVo findUuidByUuid(String uuid) throws Exception {
 
-        String sql = "select * from tbl_member where mid = ?";
+        String sql = "select * from tbl_member where uuid = ?";
 
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -67,7 +69,11 @@ public class MemberDao {
 
         @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
 
-        resultSet.next();
+        log.info("resultSet : ------------" + resultSet);
+
+        if (!resultSet.next()) {
+            throw new RuntimeException("No member found with UUID: " + uuid);
+        }
 
         MemberVo memberVo = MemberVo.builder()
                 .mid(resultSet.getString("mid"))

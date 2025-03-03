@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- SampleDao 등록 -->
+    <bean id="sampleDao" class="org.zerock.sample.SampleDao"></bean>
+
+    <!-- SampleService 등록 및 SampleDao 주입 -->
+    <bean id="sampleService" class="org.zerock.sample.SampleService">
+<!--        <property name="sampleDao" ref="sampleDao"/>-->
+    </bean>
+
+</beans>

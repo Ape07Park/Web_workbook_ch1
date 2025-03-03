@@ -27,6 +27,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    implementation group: 'org.springframework', name: 'spring-core', version: '6.2.2'
+    implementation group: 'org.springframework', name: 'spring-context', version: '6.2.2'
+    implementation group: 'org.springframework', name: 'spring-test', version: '6.2.2'
+
+
     // https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api
     implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.0'
 // https://mvnrepository.com/artifact/org.eclipse.jetty/glassfish-jstl

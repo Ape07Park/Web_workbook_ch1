@@ -2,9 +2,6 @@ package org.zerock.sample;
 
 import org.springframework.stereotype.Repository;
 
-
-public interface SampleDao {
-
-
-
+@Repository
+public class SampleDaoImpl implements SampleDao{
 }

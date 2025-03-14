@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
     <!--    &lt;!&ndash; SampleDao 등록 &ndash;&gt;-->
     <!--    <bean id="sampleDao" class="org.zerock.sample.SampleDao"></bean>-->
@@ -41,5 +42,14 @@
 
         <constructor-arg ref="hikariConfig"/>
     </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--        TODO 추후 주석 달기-->
+        <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
+    </bean>
+
+    <mybatis:scan base-package="org.zerock.springex.mapper"/>
+
 
 </beans>

@@ -9,7 +9,7 @@
         resultType은 sql의 결과를 어떤 타입으로 할 것인지에 대한 것이다. 내가 만든 객체의 경우 경로 지정 필요
         resultMap은 sql의 결과 매핑 방식을 지정하는 속성으로 복잡한 결과 매핑이 필요할 때 사용 (객체 매핑)
 -->
-    <select id="getNow" resultType="String">
+    <select id="getNow" resultType="string">
         select now()
     </select>
 

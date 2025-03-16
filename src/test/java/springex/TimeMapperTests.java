@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.zerock.springex.mapper.TimeMapper;
+import org.zerock.springex.mapper.TimeMapper2;
 
 @Log4j2
 @ExtendWith(SpringExtension.class)
@@ -17,8 +18,17 @@ public class TimeMapperTests {
     // 여기다 넣은 이유는 TimeMapper는 스프링 빈으로 등록된 것이 아니기 때문이다.
     private TimeMapper timeMapper;
 
+    @Autowired(required = false)
+    private TimeMapper2 timeMapper2;
+
     @Test
     public void testGetTime() {
         log.info("Current time: {}", timeMapper.getTime());
     }
+
+    @Test
+    public void testNow() {
+        log.info(timeMapper2.getNow());
+    }
+
 }

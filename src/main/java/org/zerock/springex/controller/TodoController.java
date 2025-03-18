@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.zerock.springex.dto.TodoDto;
 
 /**
  * @RequestMapping: 경로를 지정해 지정한 경로에 오는 요청을 처리할 수 있게 하는 역할을 한다.
@@ -24,14 +25,16 @@ public class TodoController {
         log.info("todo list.........");
     }
 
-    @RequestMapping(value="/write", method = RequestMethod.GET) // get 방식으로 받기
+    @RequestMapping(value="/register", method = RequestMethod.GET) // get 방식으로 받기
     public void write() {
         log.info("todo write.........");
     }
 
-    @PostMapping("write") // 지정한 경로로 오는 요청을 post 방식으로 처리한다
-    public void writePost() {
+    @PostMapping("register") // 지정한 경로로 오는 요청을 post 방식으로 처리한다
+    public void writePost(TodoDto todoDto) { // 폼 데이터로 오는 경우 객체 자료형은 setter를 통해 각 필드가 자동 형변환 처리된다
         log.info("todo write POST.........");
+        log.info("todoDto: " + todoDto);
+
     }
 
 }

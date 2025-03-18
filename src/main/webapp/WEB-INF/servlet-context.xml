@@ -4,8 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+<!--    스프링 MVC 관련 설정들-->
+
 <!--    스프링 mvc 설정을 어노테이션 기반으로 처리 및 스프링 mvc의 여러 객체를 자동으로 스프링의 빈으로 등록해줌-->
-    <mvc:annotation-driven/>
+<!-- conversionService라는 컨버터를 사용할 것임을 알림   -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
 <!--   이미지나 html 같은 정적 파일의 경로 지정 따라서 /resources 경로로 들어오는 요청은 정적 파일 요청이라 생각해 스프링 mvc에서 처리 안함
     location의 속성 값은 webapp 폴더에 만들어 둔 폴더를 의미한다
@@ -27,5 +30,14 @@
 <!--    org.zerock.springex.controller를 스캔해서 빈으로 등록될 수 있게 함-->
     <context:component-scan base-package="org.zerock.springex.controller"/>
 
+<!--    포매터나 컨버터로의 접근을 쉽게 하기 위해 설정 그냥 빈 등록으로 이해해도 됨-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+
+        <property name="formatters">
+            <set>
+                <bean class="org.zerock.springex.controller.formatter.LocalDateFormatter"/>
+            </set>
+        </property>
+    </bean>
 
 </beans>

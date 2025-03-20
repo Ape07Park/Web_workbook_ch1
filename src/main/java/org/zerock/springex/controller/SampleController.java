@@ -76,7 +76,15 @@ public class SampleController {
 
     //  메소드 이름을 따라 view 이름도 따라감 따라서 /ex6를 주소창에 입력 시 ex6.jsp 파일을 찾음. 없으면 404
     @GetMapping("/ex6")
-    public void ex6() {
+    public void ex6() {}
 
+    @GetMapping("/ex7")
+    public void ex7(@RequestParam("p1") String p1, @RequestParam("p2") int p2) {
+        log.info("p1........ + p1");
+        log.info("p2........ + p2");
     }
+
+
+
+
 }

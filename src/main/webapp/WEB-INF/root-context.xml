@@ -17,6 +17,7 @@
     <!--    지정한 폴더를 스캔하여 스프링 어노테이션 인식-->
     <context:component-scan base-package="org.zerock.sample"/>
 
+    <!--    특정 DB와의 연결 상태를 미리 설정(CP)-->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
@@ -25,17 +26,17 @@
 
         <property name="username" value="webuser"></property>
         <property name="password" value="webuser"></property>
+
         <property name="dataSourceProperties">
-
             <props>
-
+                <!--                캐시 활성화-->
                 <prop key="cachePrepStmts">true</prop>
+                <!--                MySQL 드라이버가 연결당 캐시할 준비된 명령문의 수-->
                 <prop key="prepStmtCacheSize">250</prop>
+                <!--                드라이버가 캐시할 준비된 SQL 문의 최대 길이-->
                 <prop key="prepStmtCacheSqlLimit">2048</prop>
             </props>
-
         </property>
-
     </bean>
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
@@ -50,7 +51,7 @@
         <!--        xml 메퍼 파일들의 이름과 위치를 지정-->
         <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
     </bean>
-<!--        어떤 거 스캔할 지 지정-->
+    <!--        어떤 거 스캔할 지 지정-->
     <mybatis:scan base-package="org.zerock.springex.mapper"/>
 
 

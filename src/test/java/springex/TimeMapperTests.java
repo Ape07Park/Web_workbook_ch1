@@ -21,11 +21,13 @@ public class TimeMapperTests {
     @Autowired(required = false)
     private TimeMapper2 timeMapper2;
 
+    // Mapper 인터페이스만 사용
     @Test
     public void testGetTime() {
         log.info("Current time: {}", timeMapper.getTime());
     }
 
+    // SQL을 XML로 분리한 것
     @Test
     public void testNow() {
         log.info(timeMapper2.getNow());

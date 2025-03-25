@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 // 그렇기에 수정할 수 없다는 단점이 있지만 인터페이스만으로도 개발이 가능하다.
 public interface TimeMapper {
 
+    // 어노테이션을 이용한 sql문 작성
     @Select("select now()") // TimeMapper는 db의 현재 시간을 문자열로 처리
     String getTime();
 

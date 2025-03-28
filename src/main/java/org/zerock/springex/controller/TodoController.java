@@ -2,6 +2,7 @@ package org.zerock.springex.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,8 @@ public class TodoController {
         log.info("todo list.........");
     }
 
-    @RequestMapping(value="/register", method = RequestMethod.GET) // get 방식으로 받기
+//    @RequestMapping(value="/register", method = RequestMethod.GET)  get 방식으로 받기
+    @GetMapping
     public void write() {
         log.info("todo write.........");
     }
@@ -34,7 +36,5 @@ public class TodoController {
     public void writePost(TodoDto todoDto) { // 폼 데이터로 오는 경우 객체 자료형은 setter를 통해 각 필드가 자동 형변환 처리된다
         log.info("todo write POST.........");
         log.info("todoDto: " + todoDto);
-
     }
-
 }

@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @Log4j2
 public class SampleController {
 
+    //  메소드 이름을 따라 view 이름도 따라감
     @GetMapping("/hello") // get 방식의 요청을 처리
     public void hello() {
         log.info("Hello, Spring---------!");
@@ -83,8 +84,5 @@ public class SampleController {
         log.info("p1........ + p1");
         log.info("p2........ + p2");
     }
-
-
-
 
 }

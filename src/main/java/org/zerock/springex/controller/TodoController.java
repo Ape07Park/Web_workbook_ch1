@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.zerock.springex.dto.TodoDto;
 
 /**
@@ -37,4 +36,6 @@ public class TodoController {
         log.info("todo write POST.........");
         log.info("todoDto: " + todoDto);
     }
+
+
 }

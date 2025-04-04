@@ -31,11 +31,11 @@ public class TodoController {
         log.info("todo write.........");
     }
 
+
     @PostMapping("register") // 지정한 경로로 오는 요청을 post 방식으로 처리한다
-    public void writePost(TodoDto todoDto) { // 폼 데이터로 오는 경우 객체 자료형은 setter를 통해 각 필드가 자동 형변환 처리된다
+
+    public void writePost(TodoDto todoDto) { // @ModelAttribute: 폼 데이터나 쿼리 파라미터를 setter를 통해 객체의 필드가 자동으로 매핑한다. 보통 생략한다
         log.info("todo write POST.........");
         log.info("todoDto: " + todoDto);
     }
-
-
 }

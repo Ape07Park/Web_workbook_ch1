@@ -14,9 +14,6 @@
     <!--&lt;!&ndash;        <property name="sampleDao" ref="sampleDao"/>&ndash;&gt;-->
     <!--    </bean>-->
 
-    <!--    지정한 폴더를 스캔하여 스프링 어노테이션 인식-->
-    <context:component-scan base-package="org.zerock.sample"/>
-
     <!--    특정 DB와의 연결 상태를 미리 설정(CP)-->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 
@@ -53,6 +50,8 @@
     </bean>
     <!--        어떤 거 스캔할 지 지정-->
     <mybatis:scan base-package="org.zerock.springex.mapper"/>
+
+    <context:component-scan base-package="org.zerock.springex.config"/>
 
 
 </beans>

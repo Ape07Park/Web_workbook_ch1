@@ -27,7 +27,7 @@ public class CommonExceptionAdvice {
     }
 
     @ResponseBody
-    @ExceptionHandler(Exception.class) // Exception 타입의 예외를 파라미터로 받아 처리 가능. ��� Exception(상위 클래스) 예외��리
+    @ExceptionHandler(Exception.class) // Exception 타입의 예외를 파라미터로 받아 처리 가능. 모든 Exception(상위 클래스) 예외처리
     public String handleException(Exception e) {
 
         log.error("----------------");
